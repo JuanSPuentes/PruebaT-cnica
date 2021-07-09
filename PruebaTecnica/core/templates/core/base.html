@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+        <nav>
+          <div>
+            <ul>
+              <li>
+                <a href="{% url 'login' %}" >Login</a>
+              </li>
+              <li >
+                <a href="{% url 'logout' %}">Salir</a>
+              </li>
+              
+              <li>
+                  <a href="{% url 'credito:panel' %}"> Creditos para aprobar</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+      <!-- Contenido -->
+      {% block content %}{% endblock %}
+  </body>
+</html>

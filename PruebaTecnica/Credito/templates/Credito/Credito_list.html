@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<table class="default">
+  <tr>
+    <th>Usuario</th>
+    <th>Deuda SBS</th>
+    <th>Valoracion Sentinel</th>
+    <th>Puntuacion IA</th>
+    <th>Monto del Credito</th>
+    <th>Aprobar</th>
+    <th>Denegar</th>
+  </tr>
+  {% for a in objects %}
+  <tr>
+    
+    <td>{{a.user}}</td>
+    <td>{{a.sbs}}</td>
+    <td>{{a.sentinel}}</td>
+    <td>{{a.puntuacion}}</td>
+    <td>{{a.monto}}</td>
+    <!--Los Botones no hacen nada, en un entorno real deberia enviar una aprobacion y o correo 
+    al usuario y guardar en la db la decision -->
+    <td><a href="{% url 'credito:panel' %}">Aprobar Solicitud</a></td>
+    <td><a href="">Denegar Solicitud</a></td>
+  </tr>
+{% endfor %}
+</table>
+
+    
+{% endblock %}
