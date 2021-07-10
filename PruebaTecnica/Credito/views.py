@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import credito_serializer
 from django.views.generic.list import ListView
 from .models import credito
 from django.utils.decorators import method_decorator
@@ -26,4 +27,8 @@ class creditoList(ListView):
         #se envia contexto a la plantilla
         context["objects"] = lista
         return context 
+
+class credito_viewset(viewsets.ModelViewSet):
+    queryset = credito.objects.all()
+    serializer_class = credito_serializer        
     
